@@ -1,27 +1,16 @@
-import { heroes} from '../src/data/heroes';
+import { getHeroesById } from '../src/bases/importaciones'
 
+//promesas
+const promesa = new Promise((resolve, reject) =>{
 
-// const getHeroesById = (id) =>{
+    setTimeout( () =>{
+        const heroe = getHeroesById(2);
+        console.log(heroe);
+    },1500);
+});
 
-//     return heroes.find( heroe =>{
-//         if(heroe.id === id){
-//             return heroe.name
-//         }else {
-//             return false;
-//         }
-//     });
-// }
+promesa.then( () =>{
 
-const getHeroesById = (id) =>{
+    console.log('Then de la promesa')
 
-    return heroes.find( heroe => heroe.id === id);
-        
-}
-
-
-console.log(getHeroesById(2))
-
-
-const getHeroesByOwner = ( owner) => heroes.filter( heroes => heroes.owner === owner);
-
-console.log(getHeroesByOwner('DC'))
+})
